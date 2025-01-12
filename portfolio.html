@@ -1,0 +1,378 @@
+<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
+<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
+<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
+<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
+
+<!-- Take a look around and make your own copy to adapt for your own use. -->
+
+<!-- This is a comment -->
+<!-- Comments are not displayed in the browser -->
+<!-- They can be used to leave notes in the code -->
+
+<!DOCTYPE html>
+<html> 
+    <!-- HTML is heirarchial: tags like this define elements on the page. 
+    Each tag does something different. For example:
+        - The <html> tag defines the whole document.
+        - The <h1> tag defines a large heading
+        - The <p> tag defines a paragraph
+        - Tags appear as an opening <div> and closing </div> pair
+    -->
+
+<head>    
+    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
+
+    <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
+    <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
+    <link rel="stylesheet" type="text/css" href="portofolio_styles.css">
+    <title>Portfolio</title> <!-- The title displayed in the browser tab, not on the page itself -->
+
+    <!-- This is a link to the vega-lite which we're using to make graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        #chartGrid {
+            display: flex;
+        }
+        
+    </style>
+</head>
+
+<body> 
+<!-- The body tag contains the elements that visitors to our page will see. -->
+    <h1 class="big" style="margin-bottom: 0px;"> <!-- We have added a class to the header called "big" which we can use to style it in the CSS -->
+        <!-- This is a header, it is the largest text on the page -->
+        <br> Portfolio
+    </h1>
+    <p style="margin-top: 0px; color: darkblue">
+      
+    </p>
+    <h3 class="small" style="text-align: left;"> <!-- We have added a class to the header called "small" which we can use to style it in the CSS -->
+        This portfolio showcases 10 coding challenges, each demonstrating diverse data science skills—ranging from data visualization and web development to analysis. Tasks include building interactive charts, mapping, implementing machine learning models, and data scrapers, all applied to real-world economic and policy issues. 
+    </h3>
+
+    <!-- We're organising the page into sections, with each section containing a chart, title and a description -->
+    <section>
+        <div class="chart-description">
+            <h2>CC1 - Hosting: Set up a GitHub account and display charts.</h2>
+        </div>
+        <figure id="Location1"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+            <figure id="Location2"></figure> <!-- we give it an id so we can put a vega-lite graph here with VegaEmbed -->
+        
+    </section>
+
+
+    <section>
+        <div class="chart-description">
+            <h2>CC2 - Building: Create two visualizations using the Economics Observatory Data Hub. </h2>
+
+            <h3>Chart 1: Electricity Output in Indonesia</h3>
+            <p>This chart illustrates the growth of electricity output in Indonesia over time. The data highlights a consistent upward trend in power generation, reflecting the country's focus on expanding energy production to meet growing demand.</p>
+            <figure id="indonesia_electricity"></figure> 
+            
+            <h3>Chart 2: Comparative Electricity Output in Indonesia and Mexico</h3>
+            <p>This comparative chart overlays the trends in electricity output for Indonesia and Mexico, emphasizing differences in growth patterns and output levels over time.</p>
+            <figure id="indonesia_mexico_electricity"></figure>
+
+        </div>
+       
+        
+        
+
+    
+
+    </section>
+
+    <section>
+        <div class="chart-description">
+            <h2>CC3 - Debating: Economic Topic from the Festival of Economics</h2>
+            <p><strong>Topic:</strong> "The relationship between GDP growth and income inequality in OECD countries." (22 words)</p>
+    
+            <!-- Chart 1: GDP Growth vs. Income Inequality -->
+            <h3>Chart 1: GDP Growth vs. Income Inequality (Gini Coefficient)</h3>
+            <figure id="cc3_gini_gdpgrowth"></figure>
+            <p><strong>Commentary:</strong> "GDP growth does not consistently reduce income inequality, suggesting growth policies must be complemented with targeted inequality-reducing strategies." (20 words)</p>
+    
+            <!-- Chart 2: Income Inequality Trends Over Time in High-Growth Economies -->
+            <h3>Chart 2: Income Inequality Trends in High-Growth Economies</h3>
+            <figure id="cc3_ginihighincome"></figure>
+            <p><strong>Commentary:</strong> "Despite rapid growth, high-growth economies still struggle with persistent income inequality." (12 words)</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="chart-description">
+            <h2>CC4 - Replication: Find a chart from a journalist or similar source, replicate it, and improve upon it.</h2>
+            <p>This section displays both the replicated "bad" chart and the improved version using Vega-Lite.</p>
+        
+            <h3>Original Chart</h3>
+            <img src="cc4_bad_chart.jpg" alt="Original Chart" width="500" />
+            <p>This is the original chart. Although it conveys the data, it is misleading because the actual values do not match the visual representation. </p>        
+            
+            <h3>Replicated "Bad" Chart</h3>
+            <figure id="cc4_replication_bad_chart"></figure>
+            <p>This chart is a replica of the original design, created using Vega-Lite. </p>
+        
+            <h3>Improved Chart</h3>
+            <figure id="cc4_improved_chart"></figure>
+            <p>The improved chart ensures accurate data representation with clear labels, proper scaling, a clean design, and easy-to-read data labels, effectively eliminating distortions.</p>
+        
+        
+        </div>
+          
+    </section>
+
+    <section>
+        <div class="chart-description">
+            <h2>CC5 - Scraper: Scrape data from a website, clean it, and use it.</h2>
+
+    <h3>Section 1: Python Notebook</h3>
+    <p>
+        <a href="https://colab.research.google.com/drive/1BxpbhTuSOhSrXgmBd8FkYfRC5U4JQFjg?usp=sharing">
+            Link to my work in Google Colab Python Notebook
+        </a>
+    </p>
+
+    Data Scraping and Cleaning Process</h3>
+    <p>
+        The data was scraped from 
+        <a href="https://en.wikipedia.org/wiki/List_of_countries_with_highest_military_expenditures">
+            Wikipedia's page on military expenditures
+        </a> 
+        using Python libraries such as requests and BeautifulSoup. 
+        The scraped data was processed into a tabular format using pandas.
+    </p>
+        
+            <h3>Section 2: Graph from my Python Notebook</h3>
+            <figure id="cc5_top_military_spending"></figure>
+            <p>I have created a bar chart that visualizes the military spending of the top 8 countries.</p>
+        </div>
+    </section>  
+
+    <section>
+        <div class="chart-description">
+            <h2>CC6 - Loops: Build a dashboard with nine charts using data from the ONS API.</h2>
+            <p>
+                I used the World Bank’s API to batch download Indonesia Urbanization and Economic data. 
+                I also used Google Colab Python notebook to create these charts. You can see my Colab notebook 
+                <a href="https://colab.research.google.com/drive/1Y_MH37w_TZS0I5B4mv5hA8akDvgwf7ya?usp=sharing" target="_blank">here</a>.
+            </p>
+            <p> <!-- This is a paragraph, it's the main way to display text on a web page -->
+                Indonesia Urbanization and Economic Dashboard
+            </p>
+            <!-- Urban Population -->
+            <figure id="urban_population_chart"></figure>
+    
+            <!-- Urban Growth -->
+            <figure id="urban_growth_chart"></figure>
+    
+            <!-- Rural Population -->
+            <figure id="rural_population_chart"></figure>
+                 
+            <!-- Urban Density -->
+            <figure id="urban_density_chart"></figure>
+    
+            <!-- Population Growth -->
+            <figure id="population_growth_chart"></figure>
+    
+            <!-- Total Population -->
+            <figure id="population_total_chart"></figure>
+    
+            <!-- GDP Growth -->
+            <figure id="gdp_growth_chart"></figure>
+    
+            <!-- GDP Per Capita -->
+            <figure id="gdp_per_capita_chart"></figure>
+    
+            <!-- Life Expectancy -->
+            <figure id="life_expectancy_chart"></figure>
+    
+            <!-- Poverty Rate -->
+            <figure id="poverty_rate_chart"></figure>
+                    
+        </div>
+          
+    </section>
+
+    <section>
+        <div class="chart-description">
+            <h2>CC7 - Maps: Create a base map and a choropleth map.</h2>
+            <p> Section 1: Base Map - Indonesia</p>
+
+            <figure id="cc7_indonesia_map_province"></figure>
+
+            <p> Section 2: Chlorophyte Map - Gross Regional Domestic Bruto Across Provinces in Indonesia. </p>
+
+            <figure id="cc7_grdp_indo_map_province"></figure>
+
+        </div>
+
+       
+
+    </section>
+
+    <section>
+        <div class="chart-description">
+            <h2>CC8 - Big Data: Extracting a Story from Millions of Prices</h2>
+            <p>This section visualizes insights derived from the UK Price Data.</p>
+        
+            <h3>Chart 1: Average Monthly Price of Basmati Rice Over Time</h3>
+            <p><strong>Description:</strong> This chart shows the trend of average monthly basmati rice prices over time using the `db_prices` dataset.</p>
+            <figure id="cc8_average_rice_prices"></figure>
+            <p>
+                I used the UK price dataset (<a href="https://eco-prices-scrapes.s3.eu-west-2.amazonaws.com/teaching/davies_price_data/db_prices.csv" target="_blank">source</a>) and filtered for basmati rice (item_id = 210203). After cleaning and converting dates, I calculated average monthly prices and visualized trends with an Altair line chart.
+            </p>      
+        
+            <h3>Chart 2: Regional Price Comparison for Basmati Rice (January 2022)</h3>
+            <p><strong>Description:</strong> This chart compares the average price of basmati rice across regions for January 2022.</p>
+            <figure id="cc8_regional_basmati_rice_prices"></figure>
+            <p>
+                I used the UK price dataset (<a href="https://eco-prices-scrapes.s3.eu-west-2.amazonaws.com/teaching/davies_price_data/db_prices.csv" target="_blank">source</a>) and region mapping dataset (<a href="https://eco-prices-scrapes.s3.eu-west-2.amazonaws.com/teaching/davies_price_data/db_region.csv" target="_blank">source</a>). Filtering for January 2022 and basmati rice (item_id = 210203), I merged region metadata, calculated average regional prices, and visualized them with an Altair bar chart.
+            </p>
+        
+            <p>
+                I used Google Colab Python notebook to create these charts. 
+                You can see my Colab notebook 
+                <a href="https://colab.research.google.com/drive/1aYr6ipHBAWzscxoBHQm29EDGekn-u4UO?usp=sharing" target="_blank">here</a>.
+            </p>
+        </div>
+    </section>
+    
+
+    <section>
+        <div class="chart-description">
+            <h2>CC9 - Create Advanced Analytics Charts</h2>
+            
+            <!-- Chart 1: Difference-in-Differences Analysis -->
+            <h3>Chart 1: IJEPA Implementation Impact in 2008 (Difference-in-Differences)</h3>
+            <p>
+                This chart evaluates the causal effect of the Indonesia-Japan Economic Partnership Agreement (IJEPA) on trade volumes, using a Difference-in-Differences (DiD) analysis. India is used as the control group.
+            </p>
+            <figure id="cc9_diff_in_diff_ijepa_implementation"></figure>
+            <p>
+                <strong>Data Source:</strong> <a href="https://comtrade.un.org/" target="_blank">UN Comtrade</a>
+            </p>
+            
+            <!-- Chart 2: Bubble Chart -->
+            <h3>Chart 2: Environmental Performance vs Rule of Law (Bubble Chart)</h3>
+            <p>
+                This bubble chart visualizes the relationship between the Environmental Performance Index and the Rule of Law Index, with bubble size representing population and color indicating regions.
+            </p>
+            <figure id="cc9_bubble_chart_rol_epi"></figure>
+            <p>
+                <strong>Data Source:</strong> <a href="https://data.worldbank.org/" target="_blank">World Bank</a>
+            </p>
+        </div>
+    </section>
+    
+
+    <section>
+        <div class="chart-description">
+            <h2>CC10 - Create Interactive Visualizations</h2>
+            
+            <!-- Chart 1: Commodity Price Trends -->
+            <h3>Chart 1: Commodity Price Trends vs Total Export Values</h3>
+            <p>
+                This visualization explores the relationship between commodity price trends and total export values. Users can interact with the data to uncover deeper insights about individual commodities.
+            </p>
+            <figure id="cc10_commodity_prices_total_export"></figure>
+            <p>
+                <strong>Data Source:</strong> <a href="https://data.worldbank.org/" target="_blank">World Bank</a>
+            </p>
+            <p>
+                <strong>Interactive Features:</strong>
+                <ul>
+                    <li><strong>Filters:</strong> Users can filter data by commodity type for a more focused analysis.</li>
+                    <li><strong>Data Highlights:</strong> Clicking on a data point highlights related data across the visualization.</li>
+                </ul>
+            </p>
+            
+            
+            <!-- Chart 2: Indonesia Trade Analysis within ASEAN -->
+            <h3>Chart 2: Indonesia Trade Analysis within ASEAN (2013–2022)</h3>
+            <p>
+                This interactive grouped bar chart visualizes Indonesia's trade with ASEAN countries from 2013 to 2022, highlighting trade values (exports and imports) for individual countries in the region.
+            </p>
+            <figure id="cc10_indonesia_asean_trade_analysis"></figure>
+            <p>
+                <strong>Data Source:</strong> <a href="https://comtrade.un.org/" target="_blank">UN Comtrade</a>
+            </p>
+            <p>
+                <strong>Interactive Features:</strong>
+            </p>
+            <ul>
+                <li><strong>Year Slider:</strong> Adjust the year to explore trade values for a specific time period.</li>
+                <li><strong>Country Selector:</strong> Focus on specific ASEAN countries by selecting them from the dropdown menu.</li>
+                <li><strong>Data Highlights:</strong> Hover over bars to display detailed trade value information.</li>
+            </ul>
+            
+        </div>
+    </section>
+    
+    <!-- Do you want to add more sections? -->
+        <!-- Try copying pasting the section above -->
+        <!-- You'll need to change the id of the figure "<figure id="Location3"... -->
+        <!-- ... and add a new variable for the graph spec in the script at the bottom of the page -->
+
+
+    <!-- This is a script, it's a way to run JavaScript code on the page -->
+    <script>
+        // This is a comment in JavaScript - it's a different language to HTML and CSS
+
+        let figure_1_spec = "https://raw.githubusercontent.com/EconomicsObservatory/courses/main/2/s2_chart2.json"; // We're storing the URL of the graph we want to display in a variable
+                                                                                                                    // You should have a spec for a graph in this same folder. Just specify its name here, e.g. let figure_1_spec = "chart1.json"
+
+        vegaEmbed('#Location1', figure_1_spec) // We're using the vegaEmbed function to put a graph in the element with id figure_1
+
+        // Do you want to add more graphs?
+        // try defining a new variable for figure_3_spec, adding VegaEmbed for Location3, and adding a new section in the HTML
+        // e.g. 
+        // let figure_3_spec = ...
+        // vegaEmbed('#Location3', figure_3_spec)
+
+        let figure_2_spec = "cc1_declining_population.json"
+        vegaEmbed("#Location2", figure_2_spec)
+
+        let figure_3_spec = "cc1_inflation_four_g7_countries.json"
+        vegaEmbed("#Location3", figure_3_spec)
+        vegaEmbed("#indonesia_electricity", "cc2_indonesia_electricity.json")
+        vegaEmbed("#mexico_electricity", "cc2_mexico_electricity.json")
+        vegaEmbed("#indonesia_mexico_electricity", "cc2_indonesia_mexico_electricity.json")
+        vegaEmbed("#vices_spending", "cc2_vices_spending.json") 
+        vegaEmbed("#anscombesquartet", "cc2_anscombesquartet.json")
+        vegaEmbed("#cc3_gini_gdpgrowth", "cc3_gini_gdpgrowth.json")
+        vegaEmbed("#cc3_ginihighincome", "cc3_ginihighincome.json")
+        vegaEmbed("#cc4_replication_bad_chart", "cc4_replication_bad_chart.json")
+        vegaEmbed("#cc4_improved_chart", "cc4_improved_chart.json")
+        vegaEmbed("#cc5_urbanazition_rol", "cc5_urbanazition_rol.json")
+        vegaEmbed("#cc5_top_military_spending", "cc5_top_military_spending.json")
+        vegaEmbed("#urban_population_chart", "cc6_urban_population_chart.json")
+        vegaEmbed("#urban_growth_chart", "cc6_urban_growth_chart.json")
+        vegaEmbed("#rural_population_chart", "cc6_rural_population_chart.json")
+        vegaEmbed("#urban_land_area_chart", "cc6_urban_land_area_chart.json")
+        vegaEmbed("#urban_density_chart", "cc6_urban_density_chart.json")
+        vegaEmbed("#population_growth_chart", "cc6_population_growth_chart.json")
+        vegaEmbed("#population_total_chart", "cc6_population_total_chart.json")
+        vegaEmbed("#gdp_growth_chart","cc6_gdp_growth_chart.json")
+        vegaEmbed("#gdp_per_capita_chart", "cc6_gdp_per_capita_chart.json")
+        vegaEmbed("#life_expectancy_chart", "cc6_life_expectancy_chart.json")
+        vegaEmbed("#poverty_rate_chart", "cc6_poverty_rate_chart.json")
+        vegaEmbed("#cc7_indonesia_map_province", "cc7_indonesia_map_province.json")
+        vegaEmbed("#cc7_grdp_indo_map_province", "cc7_grdp_indo_map_province.json")  
+        vegaEmbed("#cc8_average_rice_prices", "cc8_average_rice_prices.json")
+        vegaEmbed("#cc8_regional_basmati_rice_prices", "cc8_regional_basmati_rice_prices.json")
+        vegaEmbed("#cc9_diff_in_diff_ijepa_implementation", "cc9_diff_in_diff_ijepa_implementation.json")
+        vegaEmbed("#cc9_bubble_chart_rol_epi", "cc9_bubble_chart_rol_epi.json")
+        vegaEmbed("#cc10_commodity_prices_total_export", "cc10_commodity_prices_total_export.json")
+        vegaEmbed("#cc10_indonesia_asean_trade_analysis", "cc10_indonesia_asean_trade_analysis.json")
+
+        
+        
+
+    </script>
+
+</body>
+    
+</html>

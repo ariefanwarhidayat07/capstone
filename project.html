@@ -1,0 +1,351 @@
+<!-- This HTML file provides a simple example of a portfolio page. It contains a header, a few sections, and a few charts. -->
+<!-- It works with the three css files in this folder: example1.css, example2.css and example3.css. -->
+<!-- The HTML file defines the structure of the page, and the CSS files define how it looks. -->
+<!-- The CSS examples are all designed to work with this page. Try swapping them out on line 29 and see what happens. -->
+
+<!-- Take a look around and make your own copy to adapt for your own use. -->
+
+<!-- This is a comment -->
+<!-- Comments are not displayed in the browser -->
+<!-- They can be used to leave notes in the code -->
+
+<!DOCTYPE html>
+<html> 
+    <!-- HTML is heirarchial: tags like this define elements on the page. 
+    Each tag does something different. For example:
+        - The <html> tag defines the whole document.
+        - The <h1> tag defines a large heading
+        - The <p> tag defines a paragraph
+        - Tags appear as an opening <div> and closing </div> pair
+    -->
+
+<head>    
+    <!-- The head tag links to resources our page needs and defines information about it. Tags in the <head> aren't displayed on the page. -->
+
+    <!-- This is a link to a stylesheet which contains rules about how each element on the page should be defined-->
+    <!-- Try swapping example1.css to another, and take a look at example1.css to see if you understand it-->
+    <link rel="stylesheet" type="text/css" href="portofolio_styles.css">
+    <title>Project</title> <!-- The title displayed in the browser tab, not on the page itself -->
+
+    <!-- This is a link to the vega-lite which we're using to make graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+    <style>
+        #chartGrid {
+            display: flex;
+        }
+        
+    </style>
+    
+    </head>
+    <body>
+        <h1 class="big"><br>Project</h1>
+       
+        <section>
+            <div class="chart-description">
+                <h2>How Have Indonesia's Trade Dynamics Evolved Over the Past Three Decades?</h2>
+                <p>
+                    This project investigates how Indonesia's trade dynamics have evolved over the past three decades and identifies the key factors influencing its trade balance.
+                </p>
+                <figure id="project_overview"></figure>
+                <ul>
+                    <li><strong>Aims:</strong>
+                        <ul>
+                            <li>Analyze Indonesia's trade performance and its driving factors over the past three decades.</li>
+                            <li>Identify key trade partners, commodities, and external factors influencing Indonesia’s trade balance.</li>
+                            <li>Evaluate the effectiveness of economic policies and agreements like IJEPA.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data:</strong>
+                        <ul>
+                            <li>
+                                <strong>Sources:</strong>
+                                <ul>
+                                    <li>World Bank data on exports, imports, trade balance, and commodity prices.</li>
+                                    <li>UN Comtrade data on key commodities, trade partners, and bilateral trade agreements.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>How Data Was Accessed:</strong>
+                                <ul>
+                                    <li>World Bank: Data was retrieved programmatically using the World Bank API. Python scripts written in Google Colab leveraged the <code>requests</code> library for API queries and <code>pandas</code> for data processing.</li>
+                                    <li>UN Comtrade: Data was accessed via their publicly available web interface, with queries filtered to focus on key commodities and trade partners. Data was manually downloaded for analysis. While UN Comtrade offers an API for more advanced data retrieval, full access requires a subscription. For instance, the Premium Individual plan costs $2,000 per year.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>Automation and Replication:</strong>
+                                <ul>
+                                    <li>Python scripts automated data retrieval from the World Bank API, ensuring consistent data collection and processing.</li>
+                                    <li>For UN Comtrade data, manual downloads were supplemented with custom Python scripts to process and standardize the datasets for analysis.</li>
+                                    <li>All workflows and scripts have been documented in the project's Google Colab Notebooks, enabling replication with minimal manual effort.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        
+
+        <section>
+            <div class="chart-description">
+                <h2>Section 1: Indonesia Trade Data Visualization</h2>
+                <p>
+                    This section visualizes Indonesia's trade indicators, including exports, imports, and trade balance, using World Bank data. The chart highlights trends over time, offering insights into economic stability and trade dynamics.
+                </p>
+                <figure id="project1_indonesia_trade_data"></figure>
+                <p>
+                    <strong>Data Source:</strong> <a href="https://data.worldbank.org/">World Bank API</a>
+                </p>
+
+                <ul>
+                    <li><strong>Key Insights:</strong>
+                        <ul>
+                            <li><strong>Exports:</strong> Rose from $29B (1990) to $323B (2022), showcasing global trade integration.</li>
+                            <li><strong>Imports:</strong> Climbed from $27B (1990) to $277B (2022), fueled by domestic demand and industrial growth.</li>
+                            <li><strong>Trade Balance:</strong> Surpluses peaked at $47B (2022); deficits occurred from 2012–2019, largest at $11B (2018).</li>
+                            <li><strong>Global Events:</strong> Major dips during the Asian Financial Crisis (1998) and Global Financial Crisis (2009); strong rebounds post-COVID-19 (2021–2022).</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul><li><strong>Notebook:</strong> The Colab notebook for this chart is available at <a href="https://colab.research.google.com/drive/1ASVYhr5V7ixNqz5JvehMevnTux_KViZg?usp=sharing" target="_blank">Colab Chart 1</a>.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <div class="chart-description">
+                <h2>Section 2: Top Export and Import Commodities</h2>
+                <p>
+                    This section analyzes Indonesia’s top 6 export and import commodities, highlighting their contribution to trade dynamics.
+                </p>
+                        <h3>Top Export Commodities</h3>
+                        <p>Bar chart displaying Indonesia's top 6 export commodities, including Coal, Copper, Palm oil, Petroleum gases, Petroleum oils (crude), and Rubber.</p>
+                        <figure id="project2_top_export_commodity"></figure>
+                        <p>
+                            <strong>Data Source:</strong> <a href="https://comtrade.un.org/">UN Comtrade</a>
+                        </p>
+                    </div>
+                        <h3>Top Import Commodities</h3>
+                        <p>Bar chart highlighting Indonesia’s top 6 import commodities, including Motor vehicles, Petroleum gases, Petroleum oils (crude), Petroleum oils (not crude), Telephone sets (smartphone), and Wheat and meslin.</p>
+                        <figure id="project2_top_import_commodity"></figure>
+                        <p>
+                            <strong>Data Source:</strong> <a href="https://comtrade.un.org/">UN Comtrade</a>
+                        </p>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>Key Insights:</strong>
+                        <ul>
+                            <li><strong>Exports:</strong> Palm oil, coal, and rubber drive export revenue, highlighting reliance on natural resources.</li>
+                            <li><strong>Imports:</strong> Machinery and electronics reflect industrialization and reliance on foreign technology.</li>
+                            <li>Trade reflects Indonesia's resource-rich economy and industrializing trends.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><strong>Notebook:</strong> The Colab notebook for this chart is available at <a href="https://colab.research.google.com/drive/1zh0abw0tYsXdYgpECk4vnc6sV2a5bHEN?usp=sharing" target="_blank">Colab Chart 2</a> and <a href="https://colab.research.google.com/drive/1ruddH7esXQdSsg7K8yMSq6WaZjlTBUGi?usp=sharing" target="_blank">Colab Chart 3</a>.
+                    </li>
+                    <li><strong>Download Raw Data:</strong>
+                        <ul>
+                            <li>Raw data for Indonesia's exports: <a href="https://github.com/ariefanwar07/ariefanwar07.github.oi/blob/main/project_data_indonesia_export_raw.xlsx" target="_blank">Download here</a>.</li>
+                            <li>Raw data for Indonesia's imports: <a href="https://github.com/ariefanwar07/ariefanwar07.github.oi/blob/main/project_data_indonesia_import_raw.xlsx" target="_blank">Download here</a>.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <div class="chart-description">
+                <h2>Section 3: Indonesia's Export and Import Partner Countries</h2>
+                <p>
+                    This section visualizes Indonesia's trade with partner countries, highlighting export and import values for 2012–2022 using interactive maps.
+                </p>
+                        <h3>Export Partner Countries</h3>
+                        <p>Interactive map displaying export values (US$) to partner countries. Darker shades indicate higher values.</p>
+                        <figure id="project3_indonesia_export_partner_region"></figure>
+                        <p>
+                            <strong>Data Source:</strong> <a href="https://comtrade.un.org/">UN Comtrade</a>
+                        </p>
+                    </div>
+                        <h3>Import Partner Countries</h3>
+                        <p>Interactive map showing import values (US$) from partner countries. Darker shades represent higher values.</p>
+                        <figure id="project3_indonesia_import_partner_region"></figure>
+                        <p>
+                            <strong>Data Source:</strong> <a href="https://comtrade.un.org/">UN Comtrade</a>
+                        </p>
+                    </div>
+                </div>
+                <ul>
+                    <li><strong>Key Insights:</strong>
+                        <ul>
+                            <li><strong>Export Partners:</strong> China, the US, and Japan lead as top export destinations, driven by commodities like palm oil and coal.</li>
+                            <li><strong>Import Partners:</strong> China, Singapore, and Japan dominate imports, reflecting industrial reliance.</li>
+                            <li>ASEAN nations play a pivotal role in regional trade integration.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><strong>Notebook:</strong> The Colab notebook for this chart is available at <a href="https://colab.research.google.com/drive/1ndDMaVhRtfMj6nOBGa_Yr4fUEwVgfHg0?usp=sharing" target="_blank">Colab Chart 4</a> and <a href="https://colab.research.google.com/drive/1kBIS75YHtSV-wkccTEEERv3UsmsRC9Ms?usp=sharing" target="_blank">Colab Chart 5</a>.</li>
+                    <li><strong>Download Raw Data:</strong>
+                        <ul>
+                            <li>Raw data for Indonesia's export partners: <a href="https://github.com/ariefanwar07/ariefanwar07.github.oi/blob/main/project_data_indonesia_export_partners_raw.xlsx" target="_blank">Download here</a>.</li>
+                            <li>Raw data for Indonesia's import partners: <a href="https://github.com/ariefanwar07/ariefanwar07.github.oi/blob/main/project_data_indonesia_import_partners_raw.xlsx" target="_blank">Download here</a>.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <div class="chart-description">
+                <h2>Section 4: Indonesia Trade Analysis within ASEAN Countries</h2>
+                <p>
+                    This section provides an interactive grouped bar chart showing Indonesia's trade with ASEAN countries from 2013 to 2022. It highlights trade value by export and import type for individual countries within the ASEAN region.
+                </p>
+                <figure id="project6_indonesia_asean_trade_analysis"></figure>
+                <p>
+                    <strong>Data Source:</strong> <a href="https://comtrade.un.org/">UN Comtrade</a>
+                </p>
+                <ul>
+                    <li><strong>Key Insights:</strong>
+                        <ul>
+                            <li>Singapore is Indonesia's top trade partner in both exports and imports, showing consistent dominance.</li>
+                            <li>Thailand and Malaysia are consistent sources of imports, often leading to trade deficits.</li>
+                            <li>Viet Nam shows steady growth in bilateral trade with Indonesia, reflecting deeper integration.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><strong>Notebook:</strong> The Colab notebook for this chart is available at <a href="https://colab.research.google.com/drive/1XH4lMOHewVyB1Q5rkuiG0auDrJu0UuZI?usp=sharing" target="_blank">Colab Chart 6</a>.</li>
+                    <li><strong>Download Raw Data:</strong> Raw data for Indonesia's trade with ASEAN countries is available at <a href="https://github.com/ariefanwar07/ariefanwar07.github.oi/blob/main/project_data_indonesia_asean_trade_value_raw.xlsx" target="_blank">Download here</a>.</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section>
+            <div class="chart-description">
+                <h2>Section 5: Commodity Price vs Total Export Values</h2>
+                <p>
+                    This scatter plot examines the relationship between commodity prices and total export values for Indonesia's leading commodities: coal, rubber, copper, and palm oil.
+                </p>
+                <figure id="project4_commodity_price_total_export_unit"></figure>
+                <p>
+                    <strong>Data Source:</strong> <a href="https://data.worldbank.org/">World Bank</a>
+                </p>
+                <ul>
+                    <li><strong>Key Insights:</strong>
+                        <ul>
+                            <li>Price fluctuations significantly influence export revenues, with critical thresholds for optimal trade agreements.</li>
+                            <li>Market dependencies are evident in commodities like palm oil and coal.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul><li><strong>Notebook:</strong> The Colab notebook for this chart is available at <a href="https://colab.research.google.com/drive/1a0EeHE8gYzzwekTTojIhSARg37JvcUVE?usp=sharing" target="_blank">Colab Chart 7</a>.</li></ul>
+            </div>
+        </section>
+        
+        <section>
+            <div class="chart-description">
+                <h2>Section 6: IJEPA Implementation Impact in 2008 using Difference-in-Differences</h2>
+                <p>
+                    This chart evaluates the impact of the Indonesia-Japan Economic Partnership Agreement (IJEPA) using a Difference-in-Differences (DiD) analysis, with India as the control group.
+                </p>
+                <figure id="project5_ijepa_implementation_2016"></figure>
+                <p>
+                    <strong>Data Source:</strong> <a href="https://comtrade.un.org/">UN Comtrade</a>
+                </p>
+                <ul>
+                    <li><strong>Key Insights:</strong>
+                        <ul>
+                            <li>IJEPA led to a significant increase in Indonesia’s trade to Japan compared to India, the control group.</li>
+                            <li>Post-2008, Indonesia-Japan trade remained at higher levels despite global financial crises.</li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li><strong>Notebook:</strong> The Colab notebook for this chart is available at <a href="https://colab.research.google.com/drive/12NZzZFJSXGO-kgB7nS2X69neSVr9Gh2G?usp=sharing" target="_blank">Colab Chart 8</a>.</li>
+                    <li><strong>Download Raw Data:</strong> 
+                        <ul>
+                        <li>Raw data for Indonesia-Japan trade: <a href="https://github.com/ariefanwar07/ariefanwar07.github.oi/blob/main/project_data_indonesia_japan_trade_raw.xlsx" target="_blank">Download here</a>.</li>
+                        <li>Raw data for India-Japan trade: <a href="https://github.com/ariefanwar07/ariefanwar07.github.oi/blob/main/project_data_india_japan_trade_raw.xlsx" target="_blank">Download here</a>.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+               
+
+        <section>
+            <div class="chart-description">
+                <h2></h2>
+                <p>
+                    
+                </p>
+                <figure id=""></figure>
+            </div>
+        </section>
+
+        <section>
+            <div class="chart-description">
+                <h2>Analytical Challenges</h2>
+                <ul>
+                    <li><strong>Data Cleaning and Analysis:</strong>
+                        <ul>
+                            <li>Standardizing trade data into a consistent tabular format suitable for analysis was challenging due to inconsistent formats and missing values across datasets. This was resolved using Python libraries like <code>pandas</code> for data wrangling and cleaning.</li>
+                            <li>Integrating diverse datasets, such as country codes (ISO3) and HS codes for commodities, required cross-referencing multiple sources. Tools like <code>pandas</code> and merge functions ensured accurate alignment.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Data Visualization:</strong>
+                        <ul>
+                            <li>Addressing challenges in visualizing multi-dimensional data involved breaking down datasets into simpler subsets and using interactive charts to allow users to explore specific dimensions effectively.</li>
+                            <li>Ensuring compatibility across platforms was achieved by embedding visualizations directly into web pages using Vega-Lite JSON specifications and the <code>vega-embed</code> library.</li>
+                            <li>Adapting visualizations for mobile screens included:
+                                <ul>
+                                    <li><strong>Responsive Scaling:</strong> Utilized the <code>width</code> and <code>height</code> parameters in Vega-Lite to create responsive charts that automatically adapt to different screen sizes, ensuring seamless integration with mobile layouts.</li>
+                                    <li><strong>Simplified Layouts:</strong> Simplified complex charts by dividing them into focused visualizations, highlighting key data points for better readability and user engagement.</li>
+                                    <li><strong>Thorough Testing:</strong> Conducted rigorous testing using mobile simulation modes to verify usability and responsiveness across different devices and screen sizes.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2>Conclusions</h2>
+                <ul>
+                    <li>Indonesia's trade balance has improved significantly since 2020, driven by export growth and economic recovery post-COVID-19. Key export commodities like palm oil and coal continue to dominate revenues, highlighting the country’s resource wealth but also its reliance on raw materials, which poses challenges for sustainable growth.</li>
+                    <li>Regional and global trade partnerships remain crucial, with China, Japan, and ASEAN countries playing vital roles in Indonesia’s trade network. Singapore leads as a top ASEAN partner due to its global trade hub status, while Viet Nam's rapid industrial growth is strengthening its position as an emerging partner.</li>
+                    <li>External risks, such as global commodity price fluctuations, heavily influence Indonesia's trade revenues, particularly in coal and palm oil. These risks underline the need for economic diversification and the development of value-added manufacturing sectors like technology, automotive components, and processed goods to reduce dependence on raw exports.</li>
+                    <li>Trade agreements, such as the IJEPA with Japan, have bolstered export volumes and strengthened economic ties. Meanwhile, the push for renewable energy and sustainable practices offers new opportunities in green technologies, aligning with global trends toward sustainability.</li>
+                    <li>Future policies must prioritize strengthening domestic industries and optimizing trade agreements, focusing on fostering innovation, infrastructure development, and competitiveness to ensure long-term economic stability and resilience against global market volatility.</li>
+                </ul>
+            </div>
+        </section>
+        
+
+        <footer>
+            &copy; 2024 Arief Anwar Project | Designed with data-driven insights
+        </footer>
+
+        <script>
+            
+            vegaEmbed("#project1_indonesia_trade_data", "project1_indonesia_trade_data.json").catch(console.error);
+            vegaEmbed("#project2_top_export_commodity", "project2_top_export_commodity.json").catch(console.error);
+            vegaEmbed("#project2_top_import_commodity", "project2_top_import_commodity.json").catch(console.error);
+            vegaEmbed("#project3_indonesia_export_partner_region", "project3_indonesia_export_partner_region.json").catch(console.error);
+            vegaEmbed("#project3_indonesia_import_partner_region", "project3_indonesia_import_partner_region.json").catch(console.error);
+            vegaEmbed("#project4_commodity_price_total_import_unit", "project4_commodity_price_total_import_unit.json").catch(console.error);
+            vegaEmbed("#project4_commodity_price_total_export_unit", "project4_commodity_price_total_export_unit.json").catch(console.error);
+            vegaEmbed("#project5_ijepa_implementation_2016", "project5_ijepa_implementation_2016.json").catch(console.error);
+            vegaEmbed("#project6_indonesia_asean_trade_analysis", "project6_indonesia_asean_trade_analysis.json").catch(console.error);
+            
+            // Embed the second Vega-Lite visualization
+            vegaEmbed("").catch(console.error);
+            
+        </script>
+    </body>
+</html>
